@@ -11,5 +11,8 @@
         {% endif %}
         <h1>{{ post.title }}</h1>
         <p>{{ post.text|linebreaksbr }}</p>
+
+         {% load staticfiles %}   
+        <img src="{% static  post.image.url   %}"  alt="My image"/>
     </div>
 {% endblock %}

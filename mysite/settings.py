@@ -122,8 +122,8 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR,'static')
 
-MEDIA_URL = 'media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'blog/static/media')
+MEDIA_URL = 'media/img/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'blog/static/media/img/')
 
 MAX_UPLOAD_SIZE = 150100
 
