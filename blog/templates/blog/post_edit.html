@@ -1,9 +1,19 @@
 {% extends 'blog/base.html' %}
-
 {% block content %}
     <h1>New post</h1>
     <form method="POST" class="post-form" enctype="multipart/form-data">{% csrf_token %}
-        {{ form.as_p }}
+        {% load staticfiles %}
+
+
+<!--         <p>{{ form.as_p }}</p> -->
+        {{ form.instance.image }}
+
+        <p><label for="id_title">Title:</label>
+            <input type="text" name="title" value="{{ form.instance.title }}" maxlength="200" required id="id_title" /></p>
+        <p><label for="id_text">Text:</label> <textarea name="text" cols="40" rows="10" required id="id_text">{{ form.instance.text }}</textarea></p>
+        {% if form.instance.image  %}
+            <img class="center-block" src="{% static form.instance.image.url  %} " width="800" alt="My image"/>
+        {% endif %}
         <button type="submit" class="save btn btn-default">Save</button>
     </form>
 {% endblock %}

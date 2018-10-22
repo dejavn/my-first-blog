@@ -1,5 +1,4 @@
 {% extends 'blog/base.html' %}
-
 {% block content %}
     {% for post in posts %}
         <div class="post">
@@ -9,6 +8,14 @@
             <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
             <p>{{ post.text|linebreaksbr }}</p>
             <p>{{ post.image|linebreaksbr }}</p>
+            <div class="form-group">
+                <label for="user_avatar" class="col-md-9 control-label col-md-offset-3">Image</label>
+                <div class="col-sm-offset-3 col-md-9">
+                    {% load staticfiles %}
+                    <img src="{% static  post.image.url   %}" alt="" id="user_avatar_thumbnail" style="width:100px;height:60px" class="user_avatar_thumbnail">
+                    <!--<input type="file" class="user_avatar_file" id="user_avatar_file" style="height: 60px;width: 100px">-->
+                </div>
+            </div><br><br><br><br><br>
         </div>
     {% endfor %}
 {% endblock %}

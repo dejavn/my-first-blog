@@ -9,12 +9,13 @@
         {% if user.is_authenticated  %}
             <a class="btn btn-default " href="{% url 'post_edit' pk=post.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
         {% endif %}
-        <div class="text-center">
+        <div class="text-left">
             <h1>{{ post.title }}</h1>
             <p>{{ post.text|linebreaksbr }}</p>
+                    {% load staticfiles %}
+        <img class="center-block" src="{% static  post.image.url   %}" width="800" alt="My image"/>
         </div>
 
-         {% load staticfiles %}   
-        <img class="center-block" src="{% static  post.image.url   %}" width="800" alt="My image"/>
+
     </div>
 {% endblock %}
