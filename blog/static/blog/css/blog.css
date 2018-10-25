@@ -65,4 +65,7 @@ h1, h2, h3, h4 {
     position: relative;
 }
 
-
+body {
+    /*background: white url("../media/img/background.gif") no-repeat;*/
+    background-color: #F5F5DC ;
+}

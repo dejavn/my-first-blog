@@ -7,11 +7,11 @@
             </div>
             <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
             <p>{{ post.text|linebreaksbr }}</p>
-            <p>{{ post.image|linebreaksbr }}</p>
+            <!-- <p>{{ post.image|linebreaksbr }}</p> -->
             <div class="form-group">
                 <label for="user_avatar" class="col-md-9 control-label col-md-offset-3">Image</label>
                 <div class="col-sm-offset-3 col-md-9">
-                    {% load staticfiles %}
+                    {% load static %}
                     <img src="{% static  post.image.url   %}" alt="" id="user_avatar_thumbnail" style="width:100px;height:60px" class="user_avatar_thumbnail">
                     <!--<input type="file" class="user_avatar_file" id="user_avatar_file" style="height: 60px;width: 100px">-->
                 </div>
