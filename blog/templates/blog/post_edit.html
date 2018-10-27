@@ -13,6 +13,19 @@
         {% if form.instance.image  %}
             <img class="center-block" src="{% static form.instance.image.url  %} " width="800" alt="My image"/>
         {% endif %}
-        <button type="submit" class="save btn btn-default">Save</button>
+                    {% if user.is_authenticated %}
+        <div class="form-inline">
+            <p  class="text-right">Are you sure you want to edit the Post:
+                <strong>{{ form.instance.title }}</strong>?
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                
+                <a class="btn btn-default pull-right btn-sm RbtnMargin" href="{% if form.instance.id %}{% url 'post_detail' pk=form.instance.id %}{% else %}/{% endif%}">No</a>
+
+                &nbsp;&nbsp;
+                <!-- <button  type="submit" class="save btn btn-default pull-right ">Yes, delete.</button> -->
+                <button type="submit" class="btn btn-default pull-right btn-sm RbtnMargin">Save</button>
+            </p>
+        </div>
+        {% endif %}
     </form>
 {% endblock %}

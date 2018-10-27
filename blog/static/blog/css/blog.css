@@ -19,11 +19,13 @@ h1, h2, h3, h4 {
     font-family: 'Lobster', cursive;
 }
 
-.btn-default{
+/*.btn-default{
 
     position: absolute;
     right: 0;
-}
+}*/
+.RbtnMargin { margin-left: 25px; }
+
 
 .date {
     color: #828282;
@@ -69,3 +71,5 @@ body {
     /*background: white url("../media/img/background.gif") no-repeat;*/
     background-color: #F5F5DC ;
 }
+
+

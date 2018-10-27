@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'blog',
+    'ckeditor',  
+    'ckeditor_uploader',
 ]
 
 MIDDLEWARE = [
@@ -121,7 +123,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 # STATIC_ROOT = os.path.join(BASE_DIR,'blog/static')
-STATIC_ROOT = os.path.join(BASE_DIR,'blog/static/blog/')
+STATIC_ROOT = os.path.join(BASE_DIR,'blog/static/')
 
 MEDIA_URL = '/blog/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'blog/static/blog/media/')
@@ -129,3 +131,5 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'blog/static/blog/media/')
 MAX_UPLOAD_SIZE = 150100
 
 ALLOWED_IMAGE_TYPES = ['image/png','image/jpeg','image/gif']
+
+CKEDITOR_UPLOAD_PATH = 'img/'

@@ -1,0 +1,29 @@
+{% extends 'blog/base.html' %}
+{% block content %}
+    {% load static %}
+    <h1>{{ form.instance.title }}</h1>
+    <p></p>
+    <p>{{ form.instance.text }}</p>
+    <p>{{ form.instance.image }}</p>
+    {% if form.instance.image  %}
+        <img class="center-block" src="{% static form.instance.image.url  %} " width="800" alt="My image"/>
+    {% endif %}
+    <br/>
+    <br/>
+    <br/>
+    <form action="" method="POST">
+        {% csrf_token %}
+                    {% if user.is_authenticated %}
+        <div class="form-inline">
+            {% load static %}
+            <p  class="text-right">Are you sure you want to delete the Post:
+                <strong>{{ form.instance.title }}</strong>?
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <a class="btn btn-default pull-right btn-sm RbtnMargin" href="{% url 'post_detail' pk=form.instance.id %}">No</a>
+                                <!-- <button type="submit" onclick="location.href='{% url 'post_detail' pk=form.instance.id %}'" class="btn btn-default pull-right btn-sm RbtnMargin">No</button> -->
+                <button  type="submit" class="save btn btn-default pull-right  btn-sm RbtnMargin">Yes, delete.</button>
+            </p>
+        </div>
+        {% endif %}
+    </form>
+{% endblock %}

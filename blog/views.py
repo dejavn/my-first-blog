@@ -25,6 +25,7 @@ def post_new(request):
             return redirect('post_detail', pk=post.pk)
     else:
         form = PostForm()
+        print('' +str(form.instance.id))
     return render(request, 'blog/post_edit.html', {'form': form})
 
 def post_edit(request,pk):
@@ -42,3 +43,14 @@ def post_edit(request,pk):
         form =PostForm(instance=post)
     return render(request,'blog/post_edit.html',{'form':form})
 
+
+def post_delete(request,pk):
+    post=get_object_or_404(Post,pk=pk)
+    if request.method=="POST":
+        form = PostForm(request.POST,request.FILES,instance=post)
+        if form.is_valid():
+            post.delete()
+            return redirect('post_detail',pk=post.pk)
+    else:
+        form =PostForm(instance=post)
+    return render(request,'blog/post_delete.html',{'form':form})
